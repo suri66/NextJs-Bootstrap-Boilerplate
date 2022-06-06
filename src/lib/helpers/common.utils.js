@@ -1,6 +1,6 @@
 /**
  * @name utils.js
- * @description API request and response can be mutate here
+ * @description Common helpers functions
  * @author Surjeet Bhadauriya <surjeet@sixberries.com>
  * @version 0.0.0
  */

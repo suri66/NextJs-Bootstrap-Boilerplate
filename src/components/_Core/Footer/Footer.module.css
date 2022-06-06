@@ -1,0 +1,29 @@
+.footer {
+  background: #213249;
+  color: #ffffff;
+  padding: 10px 80px;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 75px;
+  z-index: 1000;
+}
+
+.footerText {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+
+@media screen and (max-width: 768px) {
+  .footer {
+    background: #213249;
+    color: #ffffff;
+    padding: 10px 20px;
+  }
+}
+

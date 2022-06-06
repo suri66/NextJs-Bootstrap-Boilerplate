@@ -1,0 +1,63 @@
+.headerBackground {
+  background-color: #ffffff !important;
+  height: 100px;
+  padding: 0px 20px;
+}
+
+.headerLink {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #0e0e0e;
+  text-decoration: none;
+}
+
+.headerLink:hover {  
+  color: #b52082;
+  text-decoration: underline;
+}
+
+.headerLinkDiv {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.headerLinkItem {
+  margin-left: 15px;
+}
+
+
+@media screen and (max-width: 768px) {
+  .headerLinkDiv {
+    position: unset;
+    left: unset;
+    top: unset;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+@media screen and (max-width: 488px) {
+  .headerBackground {    
+    padding: 0px;
+  }    
+
+  .headerLinkDiv {    
+    z-index: 1000;
+    background-color: rgba(var(--bs-light-rgb),var(--bs-bg-opacity))!important;
+    padding: 25px 5px;
+  }
+
+  .headerLinkItem {
+    margin-left: 0px;
+  }
+  
+  .singInRegisterButton {
+    margin-top: 15px;
+  }
+}

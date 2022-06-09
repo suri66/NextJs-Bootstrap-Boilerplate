@@ -8,9 +8,20 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, Button, NavbarBrand } from 'reactstrap';
 import styles from './Header.module.css';
+import LoginModal from '../../Modals/LoginModal/LoginModal';
+import RegisterModal from '../../Modals/RegisterModal/RegisterModal';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isSignInOpen, setIsSignInOpen] = useState(false);
+  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
+
+  const toggleModal = () => {
+    setIsSignInOpen(!isSignInOpen);
+  };
+  const toggleRegisterModal = () => {
+    setIsRegisterOpen(!isRegisterOpen);
+  };
   return (
     <div>
       <Navbar color="light" expand="md" fixed="" light className={styles.headerBackground}>
@@ -59,15 +70,19 @@ function Header() {
             color="dark"
             outline
             style={{ padding: '8px 25px' }}
+            onClick={toggleModal}
           >
             Sign In
           </Button>
           &nbsp;&nbsp;
-          <Button color="light" className="font-size-18">
+          <Button color="light" className="font-size-18" onClick={toggleRegisterModal}>
             Register
           </Button>
         </div>
       </Navbar>
+
+      <LoginModal toggleModal={toggleModal} isOpen={isSignInOpen} />
+      <RegisterModal toggleModal={toggleRegisterModal} isOpen={isRegisterOpen} />
     </div>
   );
 }

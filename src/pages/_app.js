@@ -7,13 +7,25 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
+  const isLoggedInUser = false;
+
+  if (!isLoggedInUser) {
+    return (
+      <ErrorBoundary>
+        <AppLayout>
+          <Component {...pageProps} />
+          <br />
+          <br />
+        </AppLayout>
+      </ErrorBoundary>
+    );
+  }
+
   return (
     <ErrorBoundary>
-      <AppLayout>
-        <Component {...pageProps} />
-        <br />
-        <br />
-      </AppLayout>
+      <Component {...pageProps} />
+      <br />
+      <br />
     </ErrorBoundary>
   );
 }

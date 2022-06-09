@@ -8,8 +8,7 @@ import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   const isLoggedInUser = false;
-
-  if (!isLoggedInUser) {
+  if (isLoggedInUser) {
     return (
       <ErrorBoundary>
         <AppLayout>

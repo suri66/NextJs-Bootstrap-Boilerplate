@@ -1,7 +1,14 @@
-
-.formSection{
-    overflow-y: scroll;
-    height: 450px;
-    margin-bottom: 20px;
-    padding: 10px;
+.formSection {
+  margin-bottom: 20px;
+  padding: 10px;
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  margin-top: 15px;
+  padding: 20px;
+  width: 40%;
 }

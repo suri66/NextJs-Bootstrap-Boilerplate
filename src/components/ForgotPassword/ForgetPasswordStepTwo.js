@@ -21,7 +21,7 @@ function ForgetPasswordStepTwo() {
               <Button color="primary" className="w-100 my-4" type="submit" size="lg">
                 Resend recovery email
               </Button>
-              <Link href="">
+              <Link href="/login">
                 <a className={styles.link}>Back to Login</a>
               </Link>
             </div>

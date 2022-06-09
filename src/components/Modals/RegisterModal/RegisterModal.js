@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button, Modal, ModalHeader, Spinner } from 'reactstrap';
-import PropTypes from 'prop-types';
+import { Button, Card, CardTitle, Spinner } from 'reactstrap';
 import { Form, Formik } from 'formik';
 import CustomInputs from '../../_Common/FormElements/CustomInputs/CustomInputs';
 import CustomTextAreas from '../../_Common/FormElements/CustomTextAreas/CustomTextAreas';
@@ -10,13 +9,13 @@ import CustomRadios from '../../_Common/FormElements/CustomRadios/CustomRadios';
 import Customcheckbox from '../../_Common/FormElements/CustomCheckbox/Customcheckbox';
 import schema from '../../../lib/validationSchemas/registerSchema';
 
-function RegisterModal({ toggleModal, isOpen }) {
+function RegisterModal() {
   return (
-    <Modal centered toggle={toggleModal} isOpen={isOpen} fullscreen="sm" size="lg">
-      <div className="p-4">
-        <ModalHeader toggle={toggleModal} className="border-0">
+    <div className={styles.container}>
+      <Card className={styles.card}>
+        <CardTitle tag="h2" className="text-center">
           Sign Up
-        </ModalHeader>
+        </CardTitle>
         <Formik
           initialValues={{
             firstName: '',
@@ -54,7 +53,7 @@ function RegisterModal({ toggleModal, isOpen }) {
                   type="text"
                   placeholder="Enter your last name"
                 />
-                <CustomInputs
+                <text-centerCustomInputs
                   requiredmsg="*"
                   title="Email"
                   id="email"
@@ -86,23 +85,17 @@ function RegisterModal({ toggleModal, isOpen }) {
                   requiredmsg="*"
                 />
               </div>
-              <div className="d-flex flex-row justify-content-end">
-                <Button color="primary" type="submit" className="mx-3 w-25">
+              <div className="d-flex flex-row justify-content-center ">
+                <Button color="primary" type="submit" className="mx-3 w-100 ">
                   {isSubmitting ? <Spinner>Loading..</Spinner> : 'Save'}
-                </Button>
-                <Button className="ml-2" onClick={toggleModal}>
-                  Cancel
                 </Button>
               </div>
             </Form>
           )}
         </Formik>
-      </div>
-    </Modal>
+      </Card>
+    </div>
   );
 }
-RegisterModal.propTypes = {
-  toggleModal: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-};
+
 export default RegisterModal;

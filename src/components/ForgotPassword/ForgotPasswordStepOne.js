@@ -39,7 +39,7 @@ function ForgotPasswordStepOne({ handleSubmit }) {
                   >
                     Send reset instructions
                   </Button>
-                  <Link href="">
+                  <Link href="/login">
                     <a className={styles.link}>Back to Login</a>
                   </Link>
                 </div>

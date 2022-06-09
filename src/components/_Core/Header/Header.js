@@ -3,13 +3,10 @@
  * @description App Header
  * @version 0.0.0
  */
-
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Collapse, Navbar, NavbarToggler, Nav, NavItem, Button, NavbarBrand } from 'reactstrap';
 import styles from './Header.module.css';
-import LoginModal from '../../Modals/LoginModal/LoginModal';
-import RegisterModal from '../../Modals/RegisterModal/RegisterModal';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -72,17 +69,22 @@ function Header() {
             style={{ padding: '8px 25px' }}
             onClick={toggleModal}
           >
-            Sign In
+            <Link href="/login">
+              <a className="text-decoration-none" color="dark">
+                Sign In
+              </a>
+            </Link>
           </Button>
           &nbsp;&nbsp;
           <Button color="light" className="font-size-18" onClick={toggleRegisterModal}>
-            Register
+            <Link href="/register">
+              <a className="text-decoration-none" color="dark">
+                Register
+              </a>
+            </Link>
           </Button>
         </div>
       </Navbar>
-
-      <LoginModal toggleModal={toggleModal} isOpen={isSignInOpen} />
-      <RegisterModal toggleModal={toggleRegisterModal} isOpen={isRegisterOpen} />
     </div>
   );
 }

@@ -7,7 +7,7 @@ import styles from './customradios.module.css';
 function CustomRadios({ ...props }) {
   const [field, meta] = useField(props);
   const gender = ['Male', 'Female', 'Other'];
-  // console.log(meta);
+  console.log(field);
   return (
     <FormGroup>
       <Label htmlFor={props.name}>

@@ -5,12 +5,13 @@
  */
 
 import { Col, Row } from 'reactstrap';
+import propTypes from 'prop-types';
 import { APP_INFO } from '../../../constants/constants';
 import styles from './Footer.module.css';
 
-function Footer() {
+function Footer({ className }) {
   return (
-    <div className={styles.footer}>
+    <div className={`${styles.footer} ${className}`}>
       <Row>
         <Col xl="7" lg="7" md="7" sm="12" xs="12" className="mt-4">
           {/* <img src="/images/footer-logo.png" alt="IB Recruitment" /> */}
@@ -23,4 +24,7 @@ function Footer() {
   );
 }
 
+Footer.propTypes = {
+  className: propTypes.string.isRequired,
+};
 export default Footer;

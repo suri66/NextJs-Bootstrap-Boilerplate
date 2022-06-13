@@ -1,6 +1,6 @@
 /**
  * @name AppLayout.js
- * @description App layout wrapper
+ * @description App layout wrapper With Sticky Footer
  * @version 0.0.0
  */
 
@@ -9,11 +9,11 @@ import PropTypes from 'prop-types';
 import Header from '../Header/Header';
 import NextHead from '../NextHead/NextHead';
 import Footer from '../Footer/Footer';
+import styles from './applayout.module.css';
 
 function AppLayout({ children }) {
   // const router = useRouter();
   // const currentRoutePath = router?.pathname;
-
   // const isPublicRoute = constants.PUBLIC_ROUTES.includes(currentRoutePath);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ function AppLayout({ children }) {
       <NextHead />
       <Header />
       <div>{children}</div>
-      <Footer />
+      <Footer className={styles.stickyFooter} />
     </div>
   );
 }

@@ -6,14 +6,21 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { Navbar, NavbarToggler, Button, NavbarBrand } from 'reactstrap';
+import propTypes from 'prop-types';
 import styles from './Header.module.css';
 
-function Header() {
+function Header({ sticky }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div>
-      <Navbar color="light" expand="md" fixed="" light className={styles.headerBackground}>
+      <Navbar
+        color="light"
+        expand="md"
+        fixed={sticky && 'top'}
+        light
+        className={`${styles.headerBackground} `}
+      >
         {/* <Image
           onClick={() => Router.push('/')}
           src="/images/IB-Recruitment-Logo.png"
@@ -80,4 +87,7 @@ function Header() {
   );
 }
 
+Header.propTypes = {
+  sticky: propTypes.bool.isRequired,
+};
 export default Header;

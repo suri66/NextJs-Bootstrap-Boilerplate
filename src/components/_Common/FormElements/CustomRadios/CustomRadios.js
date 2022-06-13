@@ -8,6 +8,7 @@ function CustomRadios({ ...props }) {
   const [field, meta] = useField(props);
   const gender = ['Male', 'Female', 'Other'];
   console.log(field);
+
   return (
     <FormGroup>
       <Label htmlFor={props.name}>
@@ -29,7 +30,6 @@ function CustomRadios({ ...props }) {
           </FormFeedback>
         ) : null}
       </div>
-      {/* <FormFeedback name={props.name}>{meta.error}</FormFeedback> */}
     </FormGroup>
   );
 }

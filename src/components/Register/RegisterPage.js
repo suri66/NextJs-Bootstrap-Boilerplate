@@ -1,15 +1,34 @@
-import React from 'react';
-import { Button, Card, CardTitle, Spinner } from 'reactstrap';
+import { React, useState } from 'react';
+import { Button, Card, CardTitle, InputGroupText, Spinner } from 'reactstrap';
 import { Form, Formik } from 'formik';
-import CustomInputs from '../../_Common/FormElements/CustomInputs/CustomInputs';
-import CustomTextAreas from '../../_Common/FormElements/CustomTextAreas/CustomTextAreas';
-import CustomDropdown from '../../_Common/FormElements/CustomDropdown/CustomDropdown';
-import styles from './RegisterModal.module.css';
-import CustomRadios from '../../_Common/FormElements/CustomRadios/CustomRadios';
-import Customcheckbox from '../../_Common/FormElements/CustomCheckbox/Customcheckbox';
-import schema from '../../../lib/validationSchemas/registerSchema';
+import CustomInputs from '../_Common/FormElements/CustomInputs/CustomInputs';
+import CustomTextAreas from '../_Common/FormElements/CustomTextAreas/CustomTextAreas';
+import CustomDropdown from '../_Common/FormElements/CustomDropdown/CustomDropdown';
+import styles from './RegisterPage.module.css';
+import CustomRadios from '../_Common/FormElements/CustomRadios/CustomRadios';
+import Customcheckbox from '../_Common/FormElements/CustomCheckbox/Customcheckbox';
+import schema from '../../lib/validationSchemas/registerSchema';
 
-function RegisterModal() {
+function RegisterPage() {
+  const [showNewPassword, setShowNewPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const toggleNewPassword = () => {
+    setShowNewPassword(!showNewPassword);
+  };
+  const toggleConfirmPassword = () => {
+    setShowConfirmPassword(!showConfirmPassword);
+  };
+
+  const newPasswordInputText = () => (
+    <InputGroupText onClick={toggleNewPassword} className={styles.postIcon}>
+      {showNewPassword ? 'Hide' : 'Show'}
+    </InputGroupText>
+  );
+  const confirmPasswordInputText = () => (
+    <InputGroupText onClick={toggleConfirmPassword} className={styles.postIcon}>
+      {showConfirmPassword ? 'Hide' : 'Show'}
+    </InputGroupText>
+  );
   return (
     <div className={styles.container}>
       <Card className={styles.card}>
@@ -20,6 +39,8 @@ function RegisterModal() {
           initialValues={{
             firstName: '',
             lastName: '',
+            newpassword: '',
+            confirmpassword: '',
             email: '',
             address: '',
             city: '',
@@ -52,6 +73,26 @@ function RegisterModal() {
                   name="lastName"
                   type="text"
                   placeholder="Enter your last name"
+                />
+                <CustomInputs
+                  title="New password"
+                  type={showNewPassword ? 'text' : 'password'}
+                  id="new-password"
+                  name="newpassword"
+                  placeholder="Your new password"
+                  requiredmsg="*"
+                  newPasswordInputText={newPasswordInputText}
+                  isNewPasswordIcon
+                />
+                <CustomInputs
+                  title="Confirm password"
+                  id="confirm-password"
+                  type={showConfirmPassword ? 'text' : 'password'}
+                  name="confirmpassword"
+                  placeholder="Your new password"
+                  requiredmsg="*"
+                  confirmPasswordInputText={confirmPasswordInputText}
+                  isConfirmPasswordIcon
                 />
                 <text-centerCustomInputs
                   requiredmsg="*"
@@ -98,4 +139,4 @@ function RegisterModal() {
   );
 }
 
-export default RegisterModal;
+export default RegisterPage;

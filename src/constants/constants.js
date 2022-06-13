@@ -17,3 +17,6 @@ export const ROUTES = [
     ROLES: ['ADMIN', 'PILOT'],
   },
 ];
+
+export const PASSWORD_VALIDATION_REGEX =
+  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/;

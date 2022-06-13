@@ -2,10 +2,12 @@ import React from 'react';
 import { useField } from 'formik';
 import { FormFeedback, FormGroup, Input, Label } from 'reactstrap';
 import PropTypes from 'prop-types';
+import styles from './customcheckbox.module.css';
 
 function Customcheckbox({ ...props }) {
   const [field, meta] = useField(props);
-  console.log(meta);
+  // console.log(meta);
+
   const hobbies = ['Coding', 'Reading', 'Baking', 'Fishing', 'Blogging', 'Fashion', 'Acting'];
   return (
     <FormGroup>
@@ -15,7 +17,7 @@ function Customcheckbox({ ...props }) {
       </Label>
       <div className="d-flex flex-wrap w-100">
         {hobbies.map((hobby) => (
-          <FormGroup key={hobby} className="w-25">
+          <FormGroup key={hobby} className={styles.formGroup}>
             <Input
               type={props.type}
               id={hobby}

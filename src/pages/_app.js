@@ -7,7 +7,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
-  const isLoggedInUser = false;
+  const isLoggedInUser = true;
   if (isLoggedInUser) {
     return (
       <ErrorBoundary>

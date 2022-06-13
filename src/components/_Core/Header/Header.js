@@ -5,20 +5,12 @@
  */
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Collapse, Navbar, NavbarToggler, Nav, NavItem, Button, NavbarBrand } from 'reactstrap';
+import { Navbar, NavbarToggler, Button, NavbarBrand } from 'reactstrap';
 import styles from './Header.module.css';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isSignInOpen, setIsSignInOpen] = useState(false);
-  const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
-  const toggleModal = () => {
-    setIsSignInOpen(!isSignInOpen);
-  };
-  const toggleRegisterModal = () => {
-    setIsRegisterOpen(!isRegisterOpen);
-  };
   return (
     <div>
       <Navbar color="light" expand="md" fixed="" light className={styles.headerBackground}>
@@ -32,7 +24,7 @@ function Header() {
         /> */}
         <NavbarBrand>Logo</NavbarBrand>
         <NavbarToggler onClick={() => setIsOpen(!isOpen)} />
-        <Collapse isOpen={isOpen} navbar className={styles.headerLinkDiv}>
+        {/* <Collapse isOpen={isOpen} navbar className={styles.headerLinkDiv}>
           <Nav navbar>
             <NavItem>
               <Link href="/" passHref>
@@ -60,14 +52,13 @@ function Header() {
               </Link>
             </NavItem>
           </Nav>
-        </Collapse>
+        </Collapse> */}
         <div className={styles.singInRegisterButton}>
           <Button
             className="font-size-18 border-radius-20 border-radius-20"
             color="dark"
             outline
             style={{ padding: '8px 25px' }}
-            onClick={toggleModal}
           >
             <Link href="/login">
               <a className="text-decoration-none" color="dark">
@@ -76,7 +67,7 @@ function Header() {
             </Link>
           </Button>
           &nbsp;&nbsp;
-          <Button color="light" className="font-size-18" onClick={toggleRegisterModal}>
+          <Button color="light" className="font-size-18">
             <Link href="/register">
               <a className="text-decoration-none" color="dark">
                 Register

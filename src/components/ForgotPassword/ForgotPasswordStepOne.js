@@ -11,16 +11,16 @@ function ForgotPasswordStepOne({ handleSubmit }) {
   return (
     <>
       <div className={styles.container}>
-        <Card className="d-flex w-30 border-0">
-          <CardBody className="d-fex w-100 flex-direction-column">
-            <CardTitle tag="h3" className="mb-3">
-              Forgot Your Password?
-            </CardTitle>
-            <CardSubtitle className=" text-muted" tag="h6">
-              Don&#39;t worry, we will reset it together in no time.
-            </CardSubtitle>
+        <Card className={styles.card}>
+          <CardBody className={styles.cardBody}>
+            <div className={styles.heading}>
+              <CardTitle tag="h3">Forgot Your Password?</CardTitle>
+              <CardSubtitle className=" text-muted" tag="h6">
+                Don&#39;t worry, we will reset it together in no time.
+              </CardSubtitle>
+            </div>
             <Formik initialValues={{ email: '' }} onSubmit={handleSubmit} validationSchema={schema}>
-              <Form>
+              <Form className={styles.form}>
                 <div className="my-4">
                   <CustomInputs
                     name="email"

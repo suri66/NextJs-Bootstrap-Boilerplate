@@ -2,16 +2,16 @@ import React from 'react';
 import Link from 'next/link';
 import { Button, Card, CardTitle, Spinner } from 'reactstrap';
 import { Formik, Form } from 'formik';
-import CustomInputs from '../../_Common/FormElements/CustomInputs/CustomInputs';
-import logInSchema from '../../../lib/validationSchemas/loginSchema';
+import CustomInputs from '../_Common/FormElements/CustomInputs/CustomInputs';
+import logInSchema from '../../lib/validationSchemas/loginSchema';
 import styles from './login.module.css';
 
-function LoginModal() {
+function LoginPage() {
   return (
     <div className={styles.container}>
       <Card className={styles.card}>
-        <CardTitle className="fw-bold p-4" tag="h2">
-          Hi,Welcome Back!
+        <CardTitle className={styles.welcomeText} tag="h2">
+          Hi, Welcome Back!
         </CardTitle>
         <Formik
           initialValues={{ email: '', password: '' }}
@@ -64,4 +64,4 @@ function LoginModal() {
   );
 }
 
-export default LoginModal;
+export default LoginPage;

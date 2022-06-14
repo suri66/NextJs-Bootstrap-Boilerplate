@@ -1,22 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
-import { Button, Modal, ModalHeader, Spinner } from 'reactstrap';
-import PropTypes from 'prop-types';
+import { Button, Card, CardTitle, Spinner } from 'reactstrap';
 import { Formik, Form } from 'formik';
-import CustomInputs from '../../_Common/FormElements/CustomInputs/CustomInputs';
-import schema from '../../../lib/validationSchemas/loginSchema';
+import CustomInputs from '../_Common/FormElements/CustomInputs/CustomInputs';
+import logInSchema from '../../lib/validationSchemas/loginSchema';
+import styles from './login.module.css';
 
-function LoginModal({ toggleModal, isOpen }) {
+function LoginPage() {
   return (
-    <Modal centered fullscreen="sm" isOpen={isOpen} size="md" toggle={toggleModal} className="p-3">
-      <div style={{ padding: '20px' }}>
-        <ModalHeader
-          toggle={toggleModal}
-          className="fw-bold fs-6 p-4"
-          style={{ borderBottom: 'none' }}
-        >
-          Hi,Welcome Back!
-        </ModalHeader>
+    <div className={styles.container}>
+      <Card className={styles.card}>
+        <CardTitle className={styles.welcomeText} tag="h2">
+          Hi, Welcome Back!
+        </CardTitle>
         <Formik
           initialValues={{ email: '', password: '' }}
           onSubmit={(values, submitProps) => {
@@ -26,7 +22,7 @@ function LoginModal({ toggleModal, isOpen }) {
             }, 2000);
             // console.log(actions, 'actions');
           }}
-          validationSchema={schema}
+          validationSchema={logInSchema}
         >
           {({ isSubmitting }) => (
             <>
@@ -47,13 +43,14 @@ function LoginModal({ toggleModal, isOpen }) {
                   placeholder="Enter your password"
                 />
 
-                <div className="mb-4 text-end" onClick={toggleModal}>
-                  <Link href="/ForgotPassword">Forgot Password?</Link>
+                <div className="mb-4 text-end">
+                  <Link href="/forgotPassword">Forgot Password?</Link>
                 </div>
                 <Button
                   color="primary"
                   type="submit"
                   className="w-100 mb-3"
+                  onClick={() => console.log('clicked')}
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? <Spinner color="success">Loading..</Spinner> : 'Login'}
@@ -62,12 +59,9 @@ function LoginModal({ toggleModal, isOpen }) {
             </>
           )}
         </Formik>
-      </div>
-    </Modal>
+      </Card>
+    </div>
   );
 }
-LoginModal.propTypes = {
-  toggleModal: PropTypes.func.isRequired,
-  isOpen: PropTypes.bool.isRequired,
-};
-export default LoginModal;
+
+export default LoginPage;

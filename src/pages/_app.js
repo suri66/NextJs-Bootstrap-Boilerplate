@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types';
-import AppLayout from '../components/_Core/AppLayout/AppLayout';
+// import AppLayout from '../components/_Core/AppLayout/AppLayout';
 import ErrorBoundary from '../components/_Providers/ErrorBoundary';
-
+// import AppLayout1 from '../components/_Core/AppLayout1/AppLayout1';
+// import AppLayout2 from '../components/_Core/AppLayout2/AppLayout2';
+import AppLayout3 from '../components/_Core/AppLayout3/AppLayout3';
+//
 // global css
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/globals.css';
@@ -11,11 +14,11 @@ function MyApp({ Component, pageProps }) {
   if (isLoggedInUser) {
     return (
       <ErrorBoundary>
-        <AppLayout>
+        <AppLayout3>
           <Component {...pageProps} />
           <br />
           <br />
-        </AppLayout>
+        </AppLayout3>
       </ErrorBoundary>
     );
   }

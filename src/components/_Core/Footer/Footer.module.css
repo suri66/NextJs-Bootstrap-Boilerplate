@@ -2,10 +2,6 @@
   background: #213249;
   color: #ffffff;
   padding: 10px 80px;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
   height: 75px;
   z-index: 1000;
 }
@@ -18,7 +14,6 @@
   color: #ffffff;
 }
 
-
 @media screen and (max-width: 768px) {
   .footer {
     background: #213249;
@@ -26,4 +21,3 @@
     padding: 10px 20px;
   }
 }
-

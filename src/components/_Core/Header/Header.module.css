@@ -1,7 +1,8 @@
 .headerBackground {
   background-color: #ffffff !important;
-  height: 100px;
+  height: 80px;
   padding: 0px 20px;
+  display: block;
 }
 
 .headerLink {
